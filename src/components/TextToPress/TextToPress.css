@@ -1,0 +1,14 @@
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin: 10px;
+}
+
+.submit-button {
+  position: relative;
+  /* left: 50%; */
+}

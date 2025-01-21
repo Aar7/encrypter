@@ -1,4 +1,5 @@
 // contains functions that handle the encryption
+import { symbolRegex, symbolArray } from "../config/constants";
 
 /*
      ENCRYPTER
@@ -31,6 +32,7 @@ function convertToNums(char) {
     key: null,
   };
 
+  console.log(`char is: ${char}`);
   switch (char) {
     case undefined:
       convertedChar = {
@@ -199,12 +201,26 @@ function convertToNums(char) {
         key: 0,
       };
       break;
+    // case symbolArray.includes(char):
+    //   convertedChar = {
+    //     character: `1x${symbolArray.indexOf(char)}`,
+    //   };
+    //   break;
 
-    default: // default currently handles numerals and symbols
-      convertedChar = {
-        character: "*",
-        key: 1,
-      };
+    default: {
+      // default currently handles numerals and symbols
+      if (symbolArray.includes(char)) {
+        convertedChar = {
+          character: `\`1x${symbolArray.indexOf(char)}\``,
+          key: 1,
+        };
+      } else {
+        convertedChar = {
+          character: "*",
+          key: 1,
+        };
+      }
+    }
   }
   return convertedChar;
 }
@@ -216,7 +232,6 @@ export function encrypt(text) {
   for (let i = 0; i < normalisedText.length; i++) {
     let prevChar = convertToNums(normalisedText[i - 1]);
     let currentChar = convertToNums(normalisedText[i]);
-    console.log(prevChar);
 
     if (prevChar.key !== 404 && prevChar.key === currentChar.key) {
       newString = newString.concat(".");

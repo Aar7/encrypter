@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { encrypt } from "../../utils/ttp";
 import "./TextToPress.css";
 
 function TextToPress({ rawText, setRawText }) {
@@ -6,7 +7,8 @@ function TextToPress({ rawText, setRawText }) {
 
   function handleSubmit(submittedText) {
     console.log("handleSubmit running");
-    setRawText(submittedText);
+    // setRawText(submittedText);
+    encrypt(inputValue);
   }
 
   return (
@@ -21,7 +23,10 @@ function TextToPress({ rawText, setRawText }) {
       >
         <legend>Text to Press Converter</legend>
         <label className="label" htmlFor="text">
-          Text to encrypt
+          Text to encrypt <br></br>
+          <code>
+            [(Insert what will happen to the input, here (the normalise fn))]
+          </code>
         </label>
         <input
           className="input"

@@ -1,22 +1,8 @@
 // contains functions that handle the encryption
-import { symbolRegex, symbolArray } from "../config/constants";
+import { numeralsArray, symbolArray } from "../config/constants";
 
-/*
-     ENCRYPTER
-    1    2    3
-   ...  abc  def
-
-    4    5    6
-   ghi  jkl  mno
-
-    7    8    9
-   pqrs tuv  wxyz
-
-         0
-       space
-*/
 /**
- * Converts character to lowercase and removes trailing whitespace.
+ * Convert user-input to a standard convertable string
  * @param {string} text
  * @returns string
  */
@@ -26,6 +12,18 @@ function normalise(text) {
   return text;
 }
 
+/**
+ * Takes the character from the user-input and converts it to a
+ * string depending on whether it is a number, symbol, or letter.
+ * - Letters are returned as a series of 1-4 numbers.
+ *
+ * - Numbers are returned in the format ~number.
+ *
+ * - Symbols are returned in the format `1xn` where n is the index of the
+ * symbol's place in the symbols array.
+ * @param {char} char - char from user-input string
+ * @returns {object} convertedChar
+ */
 function convertToNums(char) {
   let convertedChar = {
     character: "",
@@ -201,11 +199,6 @@ function convertToNums(char) {
         key: 0,
       };
       break;
-    // case symbolArray.includes(char):
-    //   convertedChar = {
-    //     character: `1x${symbolArray.indexOf(char)}`,
-    //   };
-    //   break;
 
     default: {
       // default currently handles numerals and symbols
@@ -213,6 +206,11 @@ function convertToNums(char) {
         convertedChar = {
           character: `\`1x${symbolArray.indexOf(char)}\``,
           key: 1,
+        };
+      } else if (numeralsArray.includes(char)) {
+        convertedChar = {
+          character: `~${char}`,
+          key: char,
         };
       } else {
         convertedChar = {
@@ -225,6 +223,11 @@ function convertToNums(char) {
   return convertedChar;
 }
 
+/**
+ * Takes user input and returns an encoded string, with special encodings for alphanumeric
+ * and symbolic characters
+ * @param {string} text - User-input string
+ */
 export function encrypt(text) {
   const normalisedText = normalise(text);
   let newString = "";
@@ -238,7 +241,6 @@ export function encrypt(text) {
     }
 
     newString = newString.concat(currentChar.character);
-    // newString = newString.concat("l");
   }
 
   alert(`'${newString}'`);

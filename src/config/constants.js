@@ -1,4 +1,6 @@
-export const symbolRegex = /[,.!?@#$%^&*()~\-_=+{}\[\]\\/|;:'"<>]/;
+// * ~ are reserved characters in my program. They should not be used in codes
+export const symbolRegex = /[,.!?@#$%^&()\-_=+{}\[\]\\/|;:'"<>]/;
+export const numeralsArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 export const symbolArray = [
   ",",
   ".",
@@ -10,10 +12,8 @@ export const symbolArray = [
   "%",
   "^",
   "&",
-  "*",
   "(",
   ")",
-  "~",
   "-",
   "_",
   "=",

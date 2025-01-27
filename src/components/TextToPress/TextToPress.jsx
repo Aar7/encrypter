@@ -13,7 +13,7 @@ function TextToPress({ rawText, setRawText }) {
 
   return (
     <div className="me-too">
-      <h1>Text To Press converter</h1>
+      <h2>Text To Press converter</h2>
       <form
         className="form"
         onSubmit={(event) => {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import TextToPress from "../TextToPress/TextToPress";
+import Header from "../Header/Header";
 
 import "./App.css";
 
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <TextToPress rawText={rawText} setRawText={setRawText} />
     </>
   );

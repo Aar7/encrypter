@@ -12,8 +12,8 @@ function TextToPress({ rawText, setRawText }) {
   }
 
   return (
-    <div className="me-too">
-      <h2>Text To Press converter</h2>
+    <div className="ttp">
+      <h2 className="ttp_heading">Text To Press converter</h2>
       <form
         className="form"
         onSubmit={(event) => {
@@ -21,12 +21,12 @@ function TextToPress({ rawText, setRawText }) {
           handleSubmit(inputValue);
         }}
       >
-        <legend>Text to Press Converter</legend>
+        {/* <legend>Text to Press Converter</legend> */}
         <label className="label" htmlFor="text">
           Text to encrypt <br></br>
-          <code>
+          {/* <code>
             [(Insert what will happen to the input, here (the normalise fn))]
-          </code>
+          </code> */}
         </label>
         <input
           className="input"

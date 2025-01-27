@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Heading";
+  src: url("Figtree-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Paragraph";
+  src: url("PontanoSans-Regular.woff");
+}

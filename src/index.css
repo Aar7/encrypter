@@ -1,0 +1,10 @@
+@import url("./vendor/fonts/fonts.css");
+
+.body {
+  width: 100vw;
+  max-width: 2560px;
+  margin: 0 auto;
+
+  /* default font */
+  font-family: "Paragraph";
+}

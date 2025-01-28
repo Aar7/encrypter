@@ -243,5 +243,6 @@ export function encrypt(text) {
     newString = newString.concat(currentChar.character);
   }
 
-  alert(`'${newString}'`);
+  // alert(`'${newString}'`);
+  return newString;
 }

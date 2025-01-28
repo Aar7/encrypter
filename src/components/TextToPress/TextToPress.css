@@ -9,10 +9,15 @@
   margin: 0;
 }
 
+.ttp_para {
+  margin: 0;
+}
+
 .form {
   position: relative;
   display: flex;
   flex-direction: column;
+  /* justify-content: space-around; */
 }
 
 .label {
